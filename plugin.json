@@ -1,0 +1,15 @@
+{
+  "id": "hello-graphy",
+  "name": "Hello GRAPHY",
+  "version": "0.1.0",
+  "contributes": ["viewer2d.menu", "mainscreen.menu"],
+  "ui": "ui.js",
+  "engines": {
+    "graphy": ">=0.1.8",
+    "os": ["win32", "darwin", "linux"]
+  },
+  "description": "GRAPHY-Next プラグインの最小サンプル。メニューを押すと挨拶を表示します。",
+  "author": "Visionary Imaging Services, Inc.",
+  "homepage": "https://github.com/tatsunidas/graphy-next-plugin-hello",
+  "license": "MIT"
+}
