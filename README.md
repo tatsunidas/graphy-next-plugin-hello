@@ -199,6 +199,7 @@ export function activate(host) {
 | プロパティ | 説明 |
 |---|---|
 | `actions` | 表示中タイルへの操作。`fit()` / `reset()` / `rotate90()` / `flipH()` / `flipV()` / `invert()` / `undo()` / `redo()` / `setWindowLevel(center, width)` / `resetWindow()` ほか |
+| `getTargets()` ほか | **v0.1.9 以降**。「いま何を見ているか」の問い合わせ、生の画素の読み出し、結果のオーバーレイ表示・派生シリーズ保存。この最小デモでは使いません（[デモ集ハブ](https://github.com/tatsunidas/graphy-next-plugin-demos) と [デモ 2](https://github.com/tatsunidas/graphy-next-plugin-mean-filter) 参照） |
 
 **`mainscreen.menu` のとき追加**
 
@@ -513,8 +514,9 @@ minisign -V -p minisign.pub -m hello-graphy-0.1.0.zip -x hello-graphy-0.1.0.zip.
 - **実行時の隔離がありません。** プラグインはアプリと同じ権限で動きます
   （backend は同一 JVM、frontend はレンダラのフルコンテキスト）。
 - **初回の作者そのものは検証できません。** TOFU は「2 回目以降、同じ相手か」を保証する仕組みです。
-- **シリーズの生ピクセル（HU 等）に触れる公式 API はまだありません。**
-  `host` から取れるのは表示操作（`actions`）と選択スタディ UID までです。
+- **画素アクセスに強制がありません。** v0.1.9 で生の画素を読む `getPixelData()` が公式 API に
+  なりましたが、`permissions` の `"read-pixels"` は宣言（同意画面での表示）だけで強制していません。
+  プラグインはアプリと同じ権限で動くため、そもそも信頼境界がありません。
 - **Web 版でのユーザー導入は実現していません。**
 
 ---
